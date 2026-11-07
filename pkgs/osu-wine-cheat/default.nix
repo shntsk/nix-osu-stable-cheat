@@ -25,12 +25,16 @@
   procps,
   unzip,
   gamemode,
-  xorg,
+  libx11,
   xkeyboard_config,
   versions,
   pname ? "osu-wine-cheat",
   # osu!.exe shipped with this repo (no download from ppy).
-  osuExe ? (./. + "/osu!.exe"),
+  osuExe ? (builtins.path {
+    path = ./. + "/osu!.exe";
+    # Nix store names cannot contain "!"
+    name = "osu-exe";
+  }),
   location ? "$HOME/.local/share/nix-osu-stable-cheat",
   useGameMode ? false,
   # Start OpenAsar arrpc when no discord-ipc-* socket exists (needed for Vesktop
@@ -75,8 +79,8 @@ let
     LC_ALL = "en_US.UTF-8";
     LANG = "en_US.UTF-8";
     # winewayland/xkbcommon: NixOS has no /usr/share/X11/locale inside yawl.
-    XLOCALEDIR = "${xorg.libX11}/share/X11/locale";
-    XCOMPOSEFILE = "${xorg.libX11}/share/X11/locale/en_US.UTF-8/Compose";
+    XLOCALEDIR = "${libx11}/share/X11/locale";
+    XCOMPOSEFILE = "${libx11}/share/X11/locale/en_US.UTF-8/Compose";
     XKB_CONFIG_ROOT = "${xkeyboard_config}/share/X11/xkb";
     WINEDLLOVERRIDES = "winemenubuilder.exe=;";
     WINEDEBUG = "-all";
