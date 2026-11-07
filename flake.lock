@@ -1,0 +1,48 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1787070829,
+        "narHash": "sha256-vXNVDVtvfiQuXthP0NHPFdNvvMTkGpx0UP8oddIWbNk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0ae2bc1419c3f345984c2629e72e7a631820fa4d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "offset-calc-osu-stable": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787279683,
+        "narHash": "sha256-gHwz/G1J69Vs5DTVcyXYOktLyhMpN8SyoaCz5jyCrNM=",
+        "owner": "gaavin",
+        "repo": "offset-calc-osu-stable",
+        "rev": "ccb640f86f8c12e50356062168cb347fba12c174",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gaavin",
+        "repo": "offset-calc-osu-stable",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "offset-calc-osu-stable": "offset-calc-osu-stable"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
